@@ -1,0 +1,70 @@
+# trace application exceptions
+aelns:
+    exception:
+        trace: false
+
+# logback spring config
+log:
+    path: logs
+    level: DEBUG
+
+# logging config
+logging:
+    level:
+        com:
+          shangpay: DEBUG
+
+# trace application
+trace: false
+
+# spring
+spring:
+    output:
+        ansi:
+            enabled: ALWAYS
+    rabbitmq:
+        host: 127.0.0.1
+        port: 5672
+        username: guest
+        password: guest
+        virtualHost: /
+    mvc:
+        date-format: yyyy-MM-dd HH:mm:ss
+        dispatch-trace-request: true
+        dispatch-options-request: true
+        throw-exception-if-no-handler-found: true
+        static-path-pattern: /static
+    freemarker:
+        check-template-location: false
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/shangpay_service?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: sa
+        tomcat:
+              max-active: 500
+              test-on-borrow: false
+              maxWait: 4000
+              jmx-enabled: false
+              test-while-idle: true
+              test-on-return: false
+              validation-interval: 30000
+              validation-query: SELECT 1
+              time-between-eviction-runs-millis: 30000
+              initial-size: 5
+              min-evictable-idle-time-millis: 30000
+              max-idle: 100
+              min-idle: 50
+              log-abandoned: false
+              remove-abandoned: true
+              remove-abandoned-timeout: 180
+              jdbc-interceptors: org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer
+
+shangpay:
+  publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlKfvs6U63GylXp11_KAmvB0YQyc4o1wp5X9PXbt0SOp_3K1PonMHNj7btZucRMGlsjy2POkI_m8xOnj8tOVp_xIQtkEYCDjlBgxGs5ZXyv9znCwECN6D_hYFw69_sFKbPIZuiFFiz7-UyvtxgbMA3cDV16NMVckcD4xw8Tzo1F2b9l4Oy-kaiCySjQM1FGUh6NoWEcFllcUqJYNAPYFAUw-7QqnrfLXFn_H_XgxJCFcWQPI7NVrYFo8-7S7lGthjqyWabKPGhhSVjGhEPaLoKV5ycLEm_TUZDqZYUJ58Nzv9sl6aMoMjYDK4jKCSnoGmUE6JXmKTABQXzxzC1p1NDwIDAQAB
+  privateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCUp--zpTrcbKVenXX8oCa8HRhDJzijXCnlf09du3RI6n_crU-icwc2Ptu1m5xEwaWyPLY86Qj-bzE6ePy05Wn_EhC2QRgIOOUGDEazllfK_3OcLAQI3oP-FgXDr3-wUps8hm6IUWLPv5TK-3GBswDdwNXXo0xVyRwPjHDxPOjUXZv2Xg7L6RqILJKNAzUUZSHo2hYRwWWVxSolg0A9gUBTD7tCqet8tcWf8f9eDEkIVxZA8js1WtgWjz7tLuUa2GOrJZpso8aGFJWMaEQ9ougpXnJwsSb9NRkOplhQnnw3O_2yXpoygyNgMriMoJKegaZQToleYpMAFBfPHMLWnU0PAgMBAAECggEAILVi1JBCh0WQjWTwFQnX_AQa1ovGtosM3OZKPEGGsJSIVbH8l63fpFvoU-lNVQOWxcT-BCDyTamBl3APim4ACJOdAb0I4KZEHjSNSe6Gmq_ibDZzHNB5EmseEZSH7-_9IDAkGfJuX2-z-YWhz_vm8OQBKVVQ8n8xoWoxX6MbR76Kmtf5uN26btBp27eV2eXiktN8Exs428HgfftS9xhSysR5vPhmBHzGMxhQXqQDopp4wiEn8ymYeRzgihX6ds-tks531NeEeywh23r8BZWpOoOw9ElZ4m48fNBlu-tnv0mlJWEh-Rz7QWhavHDsEB4CMaDSSbhMl8WamnjQSwW2AQKBgQDcT8Krgsb-AQUOSVWyhaFr9mLnHl0KEnb_kgDw2dMMK_fOpgjUoI51uoHb-0ESe3OM4D1T2iP6vTUoBtiPlJ6K9txYP50axQi1_kvw1uJGSiURRwsqXVS9avas7NnV9SmfvuulSey4PTtFVqnHLS7vSwoRzl1CQaQ_dUg3jmMuQQKBgQCsvKVj-xmsY71XT6c7qS-SAI99O0TmShd7dkFRHyqDWQc6M-s-ikww3blckcwYiV8uQhD4UpgogM-V9aGY-N-DBOJ05BuYmp4kBJ2TzLJPEXwR15aJ30nUqVn7sv90JYAAqGterWG4f26JEYprsws8PxbOuIXgwYW-7VVh9K5HTwKBgQDGl49fk29VIA4ypqB9YD_2Vg8pTxGHNsXV8wKuGWxJGIk02i4znNdOAGV2qrIpuuaaIrilkYnFSDFWd3VXWBziH0zYr98qdlo305cY7lriCYwIWwYRljgA1x6tGoPyfiCbQzqfsFeWbHu1MT2xsWURh474JhGi3BD2sv36NnvpAQKBgExcqRDl9JeNECsE_30Ucf8tWEGYbgEQSAlAYeemy3h9ZwCH6zsekEgZ_NO7cGp4cCdW9YGRocpmB17X07R4cPbOtf3OyZRQ5hAuKisolrr1k8-fauFQYKcupqTqoJuL6GZiDfUw2L5jN05I_tRVtmXPzhlc4XJWmvWondJMBK9pAoGANlJdHUZGUTGcDmyYJliuzkVIHTjpipGQE7DMWX01Zvi7n1aUsuQjeOLYI8XQGVIshlkDzuN22DZNQpHdBV3bvl_xBI19I_ek8-4RAcEKbiSAdmzs6frEMuRH6wVIUny2Ve1nsGZv3prvO5nPAzY4CRwo6WBqPCSLLfIAkWDStkc=
+
+ons:
+  topic: shangpay-test
+  ProducerId: PID_test_work
+  ConsumerId: CID_test_work
